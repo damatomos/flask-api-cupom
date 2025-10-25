@@ -52,6 +52,8 @@ def bootstrap() -> Flask:
 
     return app
 
+
+app = bootstrap()
+
 if __name__ == '__main__':
-    app = bootstrap()
     app.run(debug=True)
