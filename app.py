@@ -48,6 +48,11 @@ def bootstrap() -> Flask:
             return jsonify({"erro": f"Nenhum cupom encontrado para a categoria '{categoria}'"}), 404
         return jsonify(resultado)
     
+    @app.route("/cupons/empresa/list", methods=["GET"])
+    def get_empresas():
+        empresas = list(set(c["empresa"] for c in cupons))
+        return jsonify(empresas)
+
     @app.route("/cupons/empresa/<string:empresa>", methods=["GET"])
     def get_cupons_por_empresa(empresa):
         resultado = [c for c in cupons if c["empresa"].lower() == empresa.lower()]
