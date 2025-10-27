@@ -36,6 +36,11 @@ def bootstrap() -> Flask:
     def get_cupons():
         return jsonify(cupons)
     
+    @app.route("/cupons/categoria/list", methods=["GET"])
+    def get_categorias():
+        categorias = list(set(c["categoria"] for c in cupons))
+        return jsonify(categorias)
+
     @app.route("/cupons/categoria/<string:categoria>", methods=["GET"])
     def get_cupons_por_categoria(categoria):
         resultado = [c for c in cupons if c["categoria"].lower() == categoria.lower()]
