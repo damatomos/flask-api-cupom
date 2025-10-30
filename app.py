@@ -27,8 +27,12 @@ def bootstrap() -> Flask:
             "mensagem": "Bem-vindo à API de Cupons!",
             "rotas": {
                 "/cupons": "Retorna todos os cupons",
+                "/cupons/categoria/list": "Retorna a lista de categorias encontradas",
                 "/cupons/categoria/<nome_categoria>": "Retorna cupons de uma categoria",
-                "/cupons/empresa/<nome_empresa>": "Retorna cupons de uma empresa"
+                "/cupons/empresa/list": "Retorna a lista de empresas encontradas",
+                "/cupons/empresa/<nome_empresa>": "Retorna cupons de uma empresa",
+                "/cupons/empresa/<nome_empresa>/categoria/list": "Retorna categorias de uma empresa",
+                "/cupons/empresa/<nome_empresa>/categoria/<nome_categoria>": "Retorna cupons de uma empresa em uma categoria",
             }
         })
 
